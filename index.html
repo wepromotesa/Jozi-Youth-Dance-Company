@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jozi Youth Dance Company | Precision Meets Passion</title>
+<meta name="description" content="Jozi Youth Dance Company, founded by Jayd Swart, develops South Africa's finest young contemporary and theatrical dance talent in Johannesburg.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: { stage: '#0B0B0B', ink: '#141414', gold: '#E1C699', rose: '#C98B8B' },
+    fontFamily: { display: ['"Cormorant Garamond"', 'Georgia', 'serif'], body: ['Manrope', 'system-ui', 'sans-serif'] }
+  } }
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body { background:#0B0B0B; color:#EDE8E0; font-family:'Manrope',system-ui,sans-serif; }
+  .photo { background:#161616 linear-gradient(160deg,#1c1816,#0B0B0B); }
+  /* stage lighting: three beams sweep once on load, then settle */
+  .beam { position:absolute; top:-10%; width:46vw; height:130%; transform-origin:top center; filter:blur(28px); opacity:.0;
+          background:linear-gradient(180deg,rgba(225,198,153,.38),rgba(225,198,153,0) 78%);
+          clip-path:polygon(44% 0,56% 0,100% 100%,0 100%); animation:sweep 2.6s ease-out forwards; }
+  .beam.b1 { left:-6%; --r:-16deg; }
+  .beam.b2 { left:27%; --r:2deg; animation-delay:.25s; background:linear-gradient(180deg,rgba(201,139,139,.34),rgba(201,139,139,0) 78%); }
+  .beam.b3 { right:-6%; --r:17deg; animation-delay:.5s; }
+  @keyframes sweep { 0%{opacity:0; transform:rotate(calc(var(--r) * -2.2))} 100%{opacity:.75; transform:rotate(var(--r))} }
+  @media (prefers-reduced-motion:reduce){ .beam{animation:none; opacity:.6; transform:rotate(var(--r))} html{scroll-behavior:auto} }
+  :focus-visible { outline:2px solid #E1C699; outline-offset:3px; }
+  .field { width:100%; background:#101010; border:1px solid #3a342c; border-radius:6px; padding:.8rem .95rem; color:#EDE8E0; }
+  .field:focus { border-color:#E1C699; outline:none; box-shadow:0 0 0 3px rgba(225,198,153,.18); }
+  .btn-gold { background:#E1C699; color:#0B0B0B; font-weight:700; transition:background .2s; }
+  .btn-gold:hover { background:#efd9b4; }
+  .btn-line { border:1px solid #E1C699; color:#E1C699; font-weight:600; transition:background .2s; }
+  .btn-line:hover { background:rgba(225,198,153,.12); }
+</style>
+</head>
+<body>
+
+<!-- 1. STICKY BAR -->
+<header class="fixed top-0 inset-x-0 z-50 border-b border-gold/20 bg-stage/90 backdrop-blur">
+  <div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-3 min-w-0">
+      <span class="font-display text-2xl font-semibold text-gold leading-none whitespace-nowrap">Jozi Youth Dance Company</span>
+      <span class="hidden md:inline-flex items-center gap-1.5 rounded-full border border-gold/40 px-3 py-1 text-[11px] text-gold/90 whitespace-nowrap">
+        <i data-lucide="sparkles" class="w-3 h-3"></i>Powered by We Promote SA
+      </span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-7 text-sm text-stone-300" aria-label="Main">
+      <a class="hover:text-gold" href="#about">About</a>
+      <a class="hover:text-gold" href="#repertoire">Repertoire &amp; Productions</a>
+      <a class="hover:text-gold" href="#classes">Classes</a>
+      <a class="hover:text-gold" href="#auditions">Auditions</a>
+      <a class="hover:text-gold" href="#contact">Contact</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#auditions" class="btn-gold rounded-full px-5 py-2 text-sm whitespace-nowrap">Join the Company</a>
+      <button id="menuBtn" class="lg:hidden p-2 text-gold" aria-label="Open menu" aria-expanded="false"><i data-lucide="menu" class="w-6 h-6"></i></button>
+    </div>
+  </div>
+  <div id="mobileNav" class="hidden lg:hidden border-t border-gold/20 bg-stage px-5 py-4 flex-col gap-4 text-stone-200">
+    <a href="#about">About</a><a href="#repertoire">Repertoire &amp; Productions</a><a href="#classes">Classes</a><a href="#auditions">Auditions</a><a href="#contact">Contact</a>
+    <span class="text-xs text-gold/80">Powered by We Promote SA (Pty) Ltd</span>
+  </div>
+</header>
+
+<main id="top">
+<!-- 2. HERO -->
+<section class="relative min-h-screen flex items-end overflow-hidden pt-24">
+  <img src="https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?auto=format&fit=crop&w=1920&q=80" alt="Ballet dancer on a dark stage" class="absolute inset-0 w-full h-full object-cover opacity-45" onerror="this.style.display='none'">
+  <div class="absolute inset-0 bg-gradient-to-t from-stage via-stage/70 to-stage/30"></div>
+  <div class="beam b1"></div><div class="beam b2"></div><div class="beam b3"></div>
+  <div class="relative max-w-7xl mx-auto px-5 pb-20 md:pb-28 w-full">
+    <h1 class="font-display font-semibold text-5xl sm:text-7xl lg:text-[7.5rem] leading-[0.95] max-w-5xl">
+      Jozi Youth Dance Company <span class="block italic font-medium text-gold mt-2">Precision Meets Passion</span>
+    </h1>
+    <p class="mt-8 max-w-2xl text-lg md:text-xl text-stone-300 leading-relaxed">
+      Founded by Jayd Swart, developing South Africa’s finest young contemporary and theatrical dance talent through world-class choreography and rigorous artistic discipline.
+    </p>
+    <div class="mt-10 flex flex-wrap gap-4">
+      <a href="#repertoire" class="btn-gold rounded-full px-8 py-3.5">Explore Productions</a>
+      <a href="#auditions" class="btn-line rounded-full px-8 py-3.5">Book Audition / Class</a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. ABOUT -->
+<section id="about" class="py-24 md:py-32 border-t border-gold/10">
+  <div class="max-w-7xl mx-auto px-5 grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-5 relative">
+      <div class="photo aspect-[4/5] rounded-t-full overflow-hidden border border-gold/30">
+        <img src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=1000&q=80" alt="Dancer in rehearsal" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'">
+      </div>
+    </div>
+    <div class="lg:col-span-7">
+      <h2 class="font-display text-4xl md:text-6xl font-semibold">A stage for every young dancer in Johannesburg</h2>
+      <p class="mt-8 text-lg text-stone-300 leading-relaxed max-w-2xl">
+        Jayd Swart founded Jozi Youth Dance Company on a simple conviction: talent is everywhere in this city, and it deserves a professional stage. The company brings together diverse young dancers from across Johannesburg and trains them to perform at the standard of a working company.
+      </p>
+      <p class="mt-5 text-lg text-stone-300 leading-relaxed max-w-2xl">
+        Every season, dancers take part in groundbreaking productions, from contemporary adaptations to showcase pieces, built with original choreography, full staging and live audiences. They learn technique, stagecraft and the discipline that carries a dancer through a career.
+      </p>
+      <p class="mt-8 font-display text-2xl italic text-gold">Jayd Swart, Founder &amp; Artistic Director</p>
+    </div>
+  </div>
+</section>
+
+<!-- Productions -->
+<section id="repertoire" class="py-24 md:py-28 bg-ink border-y border-gold/10">
+  <div class="max-w-7xl mx-auto px-5">
+    <h2 class="font-display text-4xl md:text-6xl font-semibold max-w-3xl">Repertoire &amp; Productions</h2>
+    <p class="mt-5 text-stone-400 max-w-2xl">Each season is an original body of work. Contact us for current season dates and ticket information.</p>
+    <div class="mt-12 grid md:grid-cols-3 gap-5">
+      <figure class="photo relative aspect-[3/4] overflow-hidden rounded-lg border border-gold/20">
+        <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=900&q=80" alt="Dancers performing on stage" class="absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'">
+        <figcaption class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-stage to-transparent"><b class="font-display text-2xl text-gold block">Contemporary adaptations</b><span class="text-sm text-stone-300">Classic stories reimagined for the modern stage.</span></figcaption>
+      </figure>
+      <figure class="photo relative aspect-[3/4] overflow-hidden rounded-lg border border-gold/20">
+        <img src="https://images.unsplash.com/photo-1535525153412-5a42439a210d?auto=format&fit=crop&w=900&q=80" alt="Silhouetted dancer under stage lights" class="absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'">
+        <figcaption class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-stage to-transparent"><b class="font-display text-2xl text-gold block">Seasonal showcases</b><span class="text-sm text-stone-300">The full company in one evening of new choreography.</span></figcaption>
+      </figure>
+      <figure class="photo relative aspect-[3/4] overflow-hidden rounded-lg border border-gold/20">
+        <img src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=900&q=80" alt="Ballet rehearsal in a studio" class="absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'">
+        <figcaption class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-stage to-transparent"><b class="font-display text-2xl text-gold block">Studio to stage</b><span class="text-sm text-stone-300">Open rehearsals and works in progress.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PROGRAMS -->
+<section id="classes" class="py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-5">
+    <h2 class="font-display text-4xl md:text-6xl font-semibold max-w-3xl">Dance programs &amp; training divisions</h2>
+    <div class="mt-14 grid md:grid-cols-3 gap-6">
+      <article class="rounded-xl border border-gold/25 p-8 bg-ink">
+        <i data-lucide="flame" class="w-9 h-9 text-gold"></i>
+        <h3 class="mt-6 font-display text-3xl font-semibold">Contemporary &amp; Expressive Performance</h3>
+        <p class="mt-4 text-stone-400 leading-relaxed">Floor work, release technique and improvisation, shaped into performance pieces that tell a story with the whole body.</p>
+      </article>
+      <article class="rounded-xl border border-gold/25 p-8 bg-ink">
+        <i data-lucide="crown" class="w-9 h-9 text-gold"></i>
+        <h3 class="mt-6 font-display text-3xl font-semibold">Cecchetti &amp; Classical Ballet Technique</h3>
+        <p class="mt-4 text-stone-400 leading-relaxed">Structured Cecchetti training for line, balance and strength, building the technical base every other style depends on.</p>
+      </article>
+      <article class="rounded-xl border border-gold/25 p-8 bg-ink">
+        <i data-lucide="users" class="w-9 h-9 text-gold"></i>
+        <h3 class="mt-6 font-display text-3xl font-semibold">Youth Choreography &amp; Stage Ensemble</h3>
+        <p class="mt-4 text-stone-400 leading-relaxed">Dancers create and rehearse original work, then perform it as part of the company ensemble in full productions.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 5. FORM -->
+<section id="auditions" class="py-24 md:py-32 bg-ink border-t border-gold/10 relative overflow-hidden">
+  <div class="max-w-3xl mx-auto px-5 relative">
+    <h2 class="font-display text-4xl md:text-6xl font-semibold text-center">Book an audition or class</h2>
+    <p class="mt-5 text-center text-stone-400">Complete the form and the company will reply with the next available date.</p>
+    <form action="https://formsubmit.co/ask@wepromotesa.co.za" method="POST" class="mt-12 grid sm:grid-cols-2 gap-5">
+      <input type="hidden" name="_subject" value="New audition / class enquiry: Jozi Youth Dance Company">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off">
+      <label class="block"><span class="text-sm text-stone-300">Parent / Guardian name</span>
+        <input class="field mt-1.5" type="text" name="Parent_Guardian_Name" autocomplete="name" required></label>
+      <label class="block"><span class="text-sm text-stone-300">Dancer name</span>
+        <input class="field mt-1.5" type="text" name="Dancer_Name" required></label>
+      <label class="block"><span class="text-sm text-stone-300">Age / Category</span>
+        <select class="field mt-1.5" name="Age_Category" required>
+          <option value="" selected disabled>Select</option>
+          <option>Junior (5–8)</option><option>Intermediate (9–12)</option><option>Senior (13–15)</option><option>Pre-professional (16–18)</option>
+        </select></label>
+      <label class="block"><span class="text-sm text-stone-300">Selected program</span>
+        <select class="field mt-1.5" name="Selected_Program" required>
+          <option value="" selected disabled>Select</option>
+          <option>Contemporary &amp; Expressive Performance</option><option>Cecchetti &amp; Classical Ballet Technique</option><option>Youth Choreography &amp; Stage Ensemble</option>
+        </select></label>
+      <label class="block"><span class="text-sm text-stone-300">Email</span>
+        <input class="field mt-1.5" type="email" name="email" autocomplete="email" required></label>
+      <label class="block"><span class="text-sm text-stone-300">Phone number</span>
+        <input class="field mt-1.5" type="tel" name="Phone" autocomplete="tel" required></label>
+      <button type="submit" class="btn-gold sm:col-span-2 rounded-full py-4 text-base mt-2">Send audition request</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- 6. FOOTER -->
+<footer id="contact" class="border-t border-gold/20 pt-14 pb-10">
+  <div class="max-w-7xl mx-auto px-5">
+    <div class="grid md:grid-cols-2 gap-10">
+      <div>
+        <p class="font-display text-3xl text-gold font-semibold">Jozi Youth Dance Company</p>
+        <p class="mt-3 text-stone-400">Johannesburg, South Africa<br>Enquiries: <a class="text-gold underline underline-offset-4" href="mailto:ask@wepromotesa.co.za">ask@wepromotesa.co.za</a></p>
+      </div>
+      <div class="md:text-right">
+        <p class="inline-block rounded-lg border border-gold/40 px-4 py-3 text-sm text-gold/90 leading-relaxed">
+          Digital Architecture &amp; Management Powered by <b>We Promote SA (Pty) Ltd</b><br>(Reg: 2026/453205/07)
+        </p>
+      </div>
+    </div>
+    <div class="mt-12 pt-6 border-t border-white/10 text-sm text-stone-500 flex flex-col md:flex-row justify-between gap-2">
+      <p>© 2026 Jozi Youth Dance Company. All Rights Reserved.</p>
+      <p>Engineered &amp; Digital Presence Managed by We Promote SA (Pty) Ltd.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script>
+  try { lucide.createIcons(); } catch (e) {}
+  const btn = document.getElementById('menuBtn'), nav = document.getElementById('mobileNav');
+  btn.addEventListener('click', () => {
+    const open = nav.classList.toggle('hidden') === false;
+    nav.classList.toggle('flex', open);
+    btn.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.classList.add('hidden'); nav.classList.remove('flex'); btn.setAttribute('aria-expanded', false); }));
+</script>
+</body>
+</html>
